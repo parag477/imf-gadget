@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  createdGadgets Gadget[] @relation("GadgetCreator")
+  updatedGadgets Gadget[] @relation("GadgetUpdater")
+}
+
+model Gadget {
+  id              String   @id @default(uuid())
+  name            String
+  codename        String   @unique
+  status          String   @default("Available")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  decommissionedAt DateTime?
+  destroyedAt     DateTime?
+  
+  createdBy      String   @map("createdById")
+  createdByUser  User     @relation("GadgetCreator", fields: [createdBy], references: [id], onDelete: Cascade)
+  updatedBy      String   @map("updatedById")
+  updatedByUser  User     @relation("GadgetUpdater", fields: [updatedBy], references: [id], onDelete: SetNull)
+  
+  @@map("gadgets")
+  @@index([createdBy])
+  @@index([updatedBy])
+}
