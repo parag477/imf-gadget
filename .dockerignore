@@ -1,0 +1,106 @@
+# Dependencies
+node_modules/
+
+# Environment files (except example)
+.env
+.env.*
+!.env.example
+
+# Build and development files
+npm-debug.log
+coverage/
+build/
+dist/
+
+# Version control
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database files
+*.sqlite
+*.sqlite-journal
+*.sql
+
+# Logs
+*.log
+
+# Certificate files
+*.pem
+*.p8
+*.p12
+*.key
+*.crt
+*.cer
+*.pfx
+
+# Allow Prisma directory
+!prisma/
+*.crt
+*.cer
+*.pfx
+*.swp
+*.swo
+*~
+# Local env files
+.env.local
+.env.*.local
+# Log files
+logs
+*.log
+# Dependency directories
+bower_components/
+# Optional npm cache directory
+.npm
+# Optional eslint cache
+.eslintcache
+# Optional REPL history
+.node_repl_history
+# Output of 'npm pack'
+*.tgz
+# Yarn Integrity file
+.yarn-integrity
+# dotenv environment variable files
+.env.test
+.env.production
+# Parcel-bundler
+.cache
+# Next.js
+.next
+# Nuxt.js
+.nuxt
+# Vue / React
+/dist
+# Sapper
+.sapper/
+# Serverless directories
+.serverless/
+# FuseBox cache
+.fusebox/
+# DynamoDB Local files
+.dynamodb/
+# TernJS port file
+.tern-port
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
